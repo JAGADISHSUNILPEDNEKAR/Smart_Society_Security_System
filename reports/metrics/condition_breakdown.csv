@@ -1,0 +1,7 @@
+condition,trials,correct_allowed,false_rejected,recall_tar,mean_similarity
+angle_yaw_left,20,4,16,20.0,0.3246
+angle_yaw_right,20,9,11,45.0,0.359
+distance_far,20,4,16,20.0,0.3119
+expression_smile,20,17,3,85.0,0.4123
+lighting_bright,20,12,8,60.0,0.3976
+lighting_dim,20,8,12,40.0,0.3514

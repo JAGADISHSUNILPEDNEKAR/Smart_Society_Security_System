@@ -1,0 +1,78 @@
+{
+  "eer_threshold": 0.1,
+  "eer_value": 0.025,
+  "recommended_security_threshold": 0.1,
+  "security_far": 0.0,
+  "security_frr": 0.05,
+  "roc_auc": 0.9844,
+  "total_probes": 180,
+  "genuine_probes": 120,
+  "impostor_probes": 60,
+  "recommended_threshold": 0.363,
+  "operating_accuracy": 0.6333,
+  "operating_precision": 1.0,
+  "operating_recall": 0.45,
+  "operating_f1": 0.6207,
+  "operating_far": 0.0,
+  "operating_frr": 0.55,
+  "confusion_matrix": [
+    [
+      60,
+      0
+    ],
+    [
+      66,
+      54
+    ]
+  ],
+  "conditions_evaluated": [
+    {
+      "condition": "angle_yaw_left",
+      "trials": 20,
+      "correct_allowed": 4,
+      "false_rejected": 16,
+      "recall_tar": 20.0,
+      "mean_similarity": 0.3246
+    },
+    {
+      "condition": "angle_yaw_right",
+      "trials": 20,
+      "correct_allowed": 9,
+      "false_rejected": 11,
+      "recall_tar": 45.0,
+      "mean_similarity": 0.359
+    },
+    {
+      "condition": "distance_far",
+      "trials": 20,
+      "correct_allowed": 4,
+      "false_rejected": 16,
+      "recall_tar": 20.0,
+      "mean_similarity": 0.3119
+    },
+    {
+      "condition": "expression_smile",
+      "trials": 20,
+      "correct_allowed": 17,
+      "false_rejected": 3,
+      "recall_tar": 85.0,
+      "mean_similarity": 0.4123
+    },
+    {
+      "condition": "lighting_bright",
+      "trials": 20,
+      "correct_allowed": 12,
+      "false_rejected": 8,
+      "recall_tar": 60.0,
+      "mean_similarity": 0.3976
+    },
+    {
+      "condition": "lighting_dim",
+      "trials": 20,
+      "correct_allowed": 8,
+      "false_rejected": 12,
+      "recall_tar": 40.0,
+      "mean_similarity": 0.3514
+    }
+  ]
+}
