@@ -32,6 +32,7 @@ from admin.enrollment import BiometricEnrollmentService
 from camera.webcam import WebcamStream
 from access_control.decision_engine import AccessControlDecisionEngine
 from access_control.event_logger import AccessEventLogger
+from recognition.detector import FaceDetector
 from ui.components import (
     render_header,
     render_metric_card,
