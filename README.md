@@ -53,7 +53,25 @@ An integrated **Event Deduplication Sliding Window** prevents database log flood
 
 ---
 
-## 4. Installation and Setup
+## 4. Cloud Deployment (Run Without Local Setup)
+
+The application is pre-configured for **1-click cloud deployment** on **Streamlit Community Cloud**, **Hugging Face Spaces**, or **Docker** (Render / Railway / AWS):
+
+### 1-Click Streamlit Community Cloud (100% Free):
+1. Sign in to [share.streamlit.io](https://share.streamlit.io/) with your GitHub account.
+2. Click **"New app"**.
+3. Select:
+   - **Repository**: `JAGADISHSUNILPEDNEKAR/Smart_Society_Security_System`
+   - **Branch**: `main`
+   - **Main file path**: `app.py`
+4. Click **"Deploy!"**.
+5. Your application will be live at `https://your-custom-subdomain.streamlit.app` with free public HTTPS, allowing live camera facial recognition from any phone, laptop, or tablet!
+
+See [`docs/deployment_guide.md`](docs/deployment_guide.md) for full deployment instructions on Docker, Render, and Hugging Face.
+
+---
+
+## 5. Local Installation and Setup
 
 ### Prerequisites
 - macOS (Apple Silicon or Intel), Linux, or Windows
