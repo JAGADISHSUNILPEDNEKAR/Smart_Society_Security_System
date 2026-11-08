@@ -87,3 +87,4 @@ Our application was specifically engineered to support cloud access via:
 1. **Browser Camera (`st.camera_input`)**: When you access the website on your phone or laptop, your browser uses the WebRTC MediaDevices API to capture real-time webcam snapshots directly from your client machine and sends the frame to the cloud backend for YuNet detection and SFace recognition.
 2. **Photo File Upload**: Upload incident photos or test portraits directly to the gate checkpoint.
 3. **Automated Fallback Security Stream**: Automatically engages if no physical camera sensor is detected, preventing any server crashes.
+
