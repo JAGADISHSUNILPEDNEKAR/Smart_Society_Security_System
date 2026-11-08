@@ -78,7 +78,11 @@ def render_live_monitor_tab(
         st.markdown("#### ⚙️ Security Gate Controls")
         stream_mode = st.radio(
             "Video Input Source:",
-            ["Laptop Webcam (Continuous)", "Browser Camera Snapshot", "Upload Test Frame / Incident Image"],
+            [
+                "Browser Camera Snapshot (Works on Cloud & Mobile)",
+                "Laptop Webcam (Continuous - Local Hardware)",
+                "Upload Test Frame / Incident Image"
+            ],
             index=0
         )
 
@@ -108,7 +112,7 @@ def render_live_monitor_tab(
             st.info("No access events currently requiring manual review.")
 
     with col_video:
-        if stream_mode == "Laptop Webcam (Continuous)":
+        if "Laptop Webcam" in stream_mode:
             live_active = st.checkbox("🟢 Activate Continuous Video Stream", value=False)
             video_placeholder = st.empty()
             decision_placeholder = st.empty()
@@ -144,7 +148,7 @@ def render_live_monitor_tab(
                 render_gate_decision_banner(None, None)
                 st.info("Camera stream is on standby. Check 'Activate Continuous Video Stream' above to initiate real-time monitoring.")
 
-        elif stream_mode == "Browser Camera Snapshot":
+        elif "Browser Camera" in stream_mode:
             cam_snap = st.camera_input("Capture Security Gate Verification Photo")
             if cam_snap is not None:
                 pil_img = Image.open(cam_snap)
@@ -159,7 +163,7 @@ def render_live_monitor_tab(
                 st.image(rgb_annotated, channels="RGB", use_container_width=True)
                 st.caption(f"Processed in {res.processing_time_ms} ms. Faces detected: {len(res.face_decisions)}")
 
-        elif stream_mode == "Upload Test Frame / Incident Image":
+        elif "Upload Test Frame" in stream_mode:
             up_file = st.file_uploader("Upload gate camera snapshot (JPG/PNG):", type=["jpg", "jpeg", "png"])
             if up_file is not None:
                 pil_img = Image.open(up_file)
@@ -345,6 +349,15 @@ def render_residents_tab(
                     st.caption(f"Biometric Templates Enrolled: **{target_res.template_count}**")
     else:
         st.info("No residents found matching the search criteria.")
+        if len(all_residents) == 0:
+            st.markdown("---")
+            st.caption("Would you like to pre-populate the resident directory for testing?")
+            if st.button("🌱 Pre-populate 20 Sample Residents (Instant Demo)", type="primary"):
+                from scripts.seed_demo_residents import seed_demo_residents
+                seed_demo_residents(overwrite=True)
+                matcher.reload_templates()
+                st.success("Successfully seeded 20 consenting residents across Tower A, B, and C!")
+                st.rerun()
 
 # -------------------------------------------------------------
 # 3. ACCESS HISTORY & AUDIT TRAIL TAB
